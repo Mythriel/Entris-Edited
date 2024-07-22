@@ -148,6 +148,7 @@ public class TetrisGame {
 
         switch (keyCode) {
             case GLFW.GLFW_KEY_LEFT:
+            case GLFW_GAMEPAD_BUTTON_DPAD_LEFT:
                 if (leftRelease) {
                     if (moveTetromino(-1, 0)) {
                         SoundHelper.moveSound();
@@ -156,6 +157,7 @@ public class TetrisGame {
                 }
                 break;
             case GLFW.GLFW_KEY_RIGHT:
+            case GLFW_GAMEPAD_BUTTON_DPAD_RIGHT:
                 if (rightRelease) {
                     if (moveTetromino(1, 0)) {
                         SoundHelper.moveSound();
@@ -164,25 +166,28 @@ public class TetrisGame {
                 }
                 break;
             case GLFW.GLFW_KEY_DOWN:
+            case GLFW_GAMEPAD_BUTTON_DPAD_DOWN:
                 break;
             case GLFW.GLFW_KEY_SPACE:
+            case GLFW.GLFW_KEY_UP:
+            case GLFW_GAMEPAD_BUTTON_DPAD_UP:
                 hardDrop();
                 break;
             case GLFW.GLFW_KEY_Z:
+            case GLFW_GAMEPAD_BUTTON_A:
                 rotateTetromino(1);
                 break;
             case GLFW.GLFW_KEY_X:
-            case GLFW.GLFW_KEY_UP:
+            case GLFW_GAMEPAD_BUTTON_B:
                 rotateTetromino(-1);
                 break;
             case GLFW.GLFW_KEY_C:
+            case GLFW_GAMEPAD_BUTTON_LEFT_BUMPER:
+            case GLFW_GAMEPAD_BUTTON_RIGHT_BUMPER:
                 holdTetromino();
                 break;
             default:
                 return false;
-        }
-
-        return true;
     }
 
     boolean sentServerScore = false;
